@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Cute Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- BACKGROUND HEARTS (DO NOT BLOCK CLICKS) -->
+<div class="hearts-bg"></div>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+  <source src="music2.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1 -->
+<div class="page active" >
+  <div class="box">
+    <h1 id="mainTitle">Hi, my Gugulu Baby 💕</h1>
+    <img id="mainGif" src="love.gif">
+    <h2 id="mainText">Are you ready to be my Valentine?</h2>
+
+    <img src="yes.png" class="btn" id="yesBtn" onclick="startLove()">
+    <img src="no.png" class="no-btn" id="noBtn" onclick="firstNoClick()">
+  </div>
+</div>
+<div class="page">
+  <div class="box">
+
+    <h1>Yeyyyyyyyyyyyy</h1>
+
+  
+
+    <img src="yey.gif">
+
+    <img src="goo.gif">
+
+    
+
+    <img src="go.png" class="btn" onclick="nextPage()">
+
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="box">
+    <h1>Rose Day 🌹</h1>
+    <img src="rose.gif">
+    <p>This rose is for you Bubu…<br>Always ❤️</p>
+    <img src="next.png" class="btn" onclick="nextPage()">
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <div class="box">
+    <h1>Propose Day 💍</h1>
+    <img src="propose.gif">
+    <p>No long speech..<br> You. Me. Sounds perfect 💖</p>
+    <h2>I LOVE YOU BABE</h2>
+    <img src="next.png" class="btn" onclick="nextPage()">
+  </div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+  <div class="box">
+    <h1>Chocolate Day 🍫</h1>
+    <img src="chocolate.gif">
+    <h2>Chocolate makes everything better, just like your presence in my life❤️</h2>
+    <p>Chocolate is nice…but you’re my favorite treat 😌</p>
+    <img src="next.png" class="btn" onclick="nextPage()">
+  </div>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+  <div class="box">
+    <h1>Teddy Day 🧸</h1>
+    <img src="teddy.gif">
+    <h2>I'm Your forever teddy🐻</h2>
+    <p>Assigned by me 😌</p>
+    <img src="next.png" class="btn" onclick="nextPage()">
+  </div>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page">
+  <div class="box">
+    <h1>Promise Day 🤞</h1>
+    <img src="promise.gif">
+    <h2>Just one,</h2>
+    <p>I'm yours and you're mine..<br>Always 💞</p>
+    <img src="next.png" class="btn" onclick="nextPage()">
+  </div>
+</div>
+
+<!-- PAGE 7 -->
+<div class="page">
+  <div class="box">
+    <h1>Hug Day 🤗</h1>
+    <img src="hug.gif">
+    <p>Until I can hold you,<br>this will do 🫂</p>
+    <img src="next.png" class="btn" onclick="nextPage()">
+  </div>
+</div>
+
+<!-- PAGE 8 -->
+<div class="page">
+  <div class="box">
+    <h1>Kiss Day 💋</h1>
+    <img src="kiss.gif">
+    <h2>Imagine it 😏</h2>
+    <p>Saving this one<br>for when we meet 😘</p>
+    <img src="next.png" class="btn" onclick="nextPage()">
+  </div>
+</div>
+
+<!-- PAGE 9 FINAL -->
+<div class="page" id="finalPage" onclick="startFinalSequence()">
+  <div class="box" id="finalBox">
+
+    <div class="intro">
+      <h1>Happy Valentine’s Day Gugulu 💕</h1>
+      <img src="final.png">
+      <p>
+        Every page, every click…<br>
+        was just my way of saying<br>
+        you mean a lot to me 💗
+      </p>
+      <h2>Be my Valentine always 💌</h2>
+      <p style="opacity:0.6;font-size:14px;">(tap anywhere)</p>
+    </div>
+
+    <div class="gif-sequence" style="display:none;">
+
+  <!-- TOP GIF -->
+  <div class="gif-item">
+    <img src="safe.gif">
+    <p>You’re my safest place 🤍</p>
+  </div>
+
+  <!-- MIDDLE TWO GIFS -->
+  <div class="gif-row">
+    <div class="gif-item small">
+      <img src="angry.gif">
+      <p>Sorry for being messy sometimes🙈</p>
+    </div>
+
+    <div class="gif-item small">
+      <img src="fix.gif">
+      <p>But you have lifetime fixing rights😏</p>
+    </div>
+  </div>
+
+  <!-- BOTTOM GIF -->
+  <div class="gif-item">
+    <img src="final.gif">
+    <p>Grateful for you, always💞</p>
+  </div>
+
+  <!-- END LINE -->
+  <p class="final-line">© Made with Love by Cupcake for Bubuli</p>
+
+</div>
+
+  </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+/* PAGE SYSTEM */
+const pages = document.querySelectorAll('.page');
+let currentPage = 0;
+
+/* SHOW PAGE */
+function showPage(index) {
+  pages.forEach(p => p.classList.remove('active'));
+  pages[index].classList.add('active');
+  currentPage = index;
+}
+
+/* NEXT PAGE */
+function nextPage() {
+  if (currentPage < pages.length - 1) {
+    showPage(currentPage + 1);
+  }
+}
+
+/* FIRST PAGE YES */
+function startLove() {
+  document.getElementById("music").play().catch(()=>{});
+  nextPage();
+}
+
+/* FIRST PAGE NO BUTTON BEHAVIOR */
+let noClicked = false;
+
+function firstNoClick() {
+  const gif = document.getElementById("mainGif");
+  const text = document.getElementById("mainText");
+
+  if (!noClicked) {
+    gif.src = "no.gif"; // change gif on first NO
+    text.innerHTML = "Pleaseeee Babyyyy🥺";
+    noClicked = true;
+  } else {
+    // run-away NO button
+    const btn = document.getElementById("noBtn");
+    btn.style.position = "absolute";
+    btn.style.left = Math.random() * 70 + "%";
+    btn.style.top = Math.random() * 70 + "%";
+  }
+}
+
+/* FINAL PAGE SEQUENCE */
+let finalStarted = false;
+
+function startFinalSequence() {
+  if (finalStarted) return;
+  finalStarted = true;
+
+  const intro = document.querySelector('#finalBox .intro');
+  const sequence = document.querySelector('#finalBox .gif-sequence');
+  const items = document.querySelectorAll('#finalBox .gif-item');
+  const endLine = document.querySelector('#finalBox .final-line');
+
+  intro.style.display = "none";
+  sequence.style.display = "flex";
+
+  // 🔥 FORCE REFLOW (THIS FIXES FIRST GIF)
+  sequence.offsetHeight;
+
+  let delay = 0;
+
+  items.forEach(item => {
+    setTimeout(() => {
+      item.classList.add('show');
+    }, delay);
+    delay += 1800;
+  });
+
+  setTimeout(() => {
+    endLine.classList.add('show');
+  }, delay + 600);
+}
+</script>
+
+</body>
+</html>
