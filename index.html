@@ -20,9 +20,25 @@
 <audio id="music" loop>
   <source src="music2.mp3" type="audio/mpeg">
 </audio>
+<div class="page active" id="authPage">
+  <div class="box">
+    <h1>Before we begin 💌</h1>
+    <p>This page is meant for someone special</p>
 
+    <input 
+      type="text" 
+      id="nameInput" 
+      placeholder="Type your name"
+      autocomplete="off"
+    >
+
+    <button class="enter-btn" onclick="checkName()">✨ Enter</button>
+
+    <p id="errorMsg" style="margin-top:12px; color:#ff758f;"></p>
+  </div>
+</div>
 <!-- PAGE 1 -->
-<div class="page active" >
+<div class="page">
   <div class="box">
     <h1 id="mainTitle">Hi, my Gugulu Baby 💕</h1>
     <img id="mainGif" src="love.gif">
@@ -176,6 +192,21 @@
 
 <!-- JAVASCRIPT -->
 <script>
+  const herName = "gugulu"; // 👈 CHANGE THIS
+
+function checkName() {
+  const input = document.getElementById("nameInput").value.trim().toLowerCase();
+  const error = document.getElementById("errorMsg");
+
+  if (input === herName.toLowerCase()) {
+    error.innerHTML = "Welcome, my favorite person 💗";
+    setTimeout(() => {
+      showPage(1); // goes to your YES/NO page
+    }, 900);
+  } else {
+    error.innerHTML = "Access denied 🚫 this page is reserved";
+  }
+}
 /* PAGE SYSTEM */
 const pages = document.querySelectorAll('.page');
 let currentPage = 0;
